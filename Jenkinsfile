@@ -19,7 +19,7 @@ pipeline{
                     archiveArtifacts 'target/*.jar'
                 // }
                 //   changed {
-                        emailext attachLog: true,
+                        emailext attachLog: true, to: "test@jenkins.com",
                         body: 'Please go to ${BUILD_URL} and verify the build',
                         compressLog: true, recipientProviders: [upstreamDevelopers(), requestor()],
                         subject: 'job \'$(JOB_NAME)\' ({$BUILD_NUMBER}) is waiting for input'
